@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Howl,Howler } from 'howler';
+import Slider from 'react-rangeslider'
+
+import 'react-rangeslider/lib/index.css'
 import '../node_modules/bulma/css/bulma.css';
-import { Howl, Howler } from 'howler';
+import './App.css';
+
 
 class App extends Component {
   render() {
@@ -15,8 +19,11 @@ class App extends Component {
           <div className="container">
           <br></br>
           <div className="columns">
+
           <div className="column">
-          <p>Go watch Ster on Twitch at <a href="https://www.twitch.tv/ster">https://www.twitch.tv/ster</a></p>
+          <p>Go watch Ster on Twitch at <a href="https://www.twitch.tv/ster">https://www.twitch.tv/ster</a></p><br></br>
+          <p>Soundboard Volume  </p>
+          <VolumeSlider/>
           </div>
           </div>
             <div className="columns">
@@ -163,7 +170,7 @@ class Sound extends Component {
           <div className="content">
             <a  onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} onClick={() => {this.handleMouseClick(this.props.soundURL)}}>
               <span>
-              <img src={this.state.imgSrc}/>
+              <img src={this.state.imgSrc} alt=""/>
               </span>
             </a>
             <p>{this.props.soundName}</p>
@@ -178,5 +185,33 @@ Sound.defaultProps = {
   soundName: "SoundName",
   soundURL: 'fuck.mp3'
 };
+
+class VolumeSlider extends Component {
+  constructor(props, context) {
+    super(props, context)
+    this.state = {
+      volume: 50
+    }
+    Howler.volume(0.5)
+  }
+
+  handleOnChange = (value) => {
+    this.setState({
+      volume: value
+    })
+    Howler.volume(value/100.0)
+  }
+
+  render() {
+    let { volume } = this.state
+    return (
+      <Slider
+        value={volume}
+        orientation="horizontal"
+        onChange={this.handleOnChange}
+      />
+    )
+  }
+}
 
 export default App;
