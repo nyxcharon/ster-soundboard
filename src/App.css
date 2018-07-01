@@ -42,7 +42,9 @@
   display: block;
   height: 140px;
   width: 140px;
-  padding: 10%;
+  padding-top: 20px;
+  min-width: 140px;
+  min-height: 140px;
   margin: auto;
 }
 
@@ -53,4 +55,11 @@
 
 .rangeslider-horizontal .rangeslider__fill {
   background-color: #209cee;
+}
+
+.burger-pic {
+  min-width: 100px;
+  min-height: 100px;
+  height: 100px;
+  width: 100px;
 }

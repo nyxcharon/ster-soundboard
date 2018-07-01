@@ -37,9 +37,7 @@ class SoundButton extends Component {
             <div className="">
             <div className="circle-button">
                 <a onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} onClick={() => { this.handleMouseClick(this.props.soundURL) }}>
-                    <span>
-                        <img src={this.state.imgSrc} alt="" />
-                    </span>
+                   <img className="burger-pic" src={this.state.imgSrc} alt="" />
                 </a>
             </div>
             <span className="tag is-info is-rounded is-medium circle-tag">  {this.props.soundName}</span>
