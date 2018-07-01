@@ -8,7 +8,7 @@
 }
 
 .App-header {
-  background-color: #ff664d;
+  background-color: #209cee;
   height: 150px;
   padding: 20px;
   color: white;
@@ -31,4 +31,26 @@
   max-width: 250px;
   margin: auto;
   margin-top: 12px;
+}
+
+.circle-button {
+  background-color: lightgrey;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  color: #4a4a4a;
+  display: block;
+  height: 140px;
+  width: 140px;
+  padding: 10%;
+  margin: auto;
+}
+
+.circle-tag {
+  width: 140px;
+  margin-top: 10px;
+}
+
+.rangeslider-horizontal .rangeslider__fill {
+  background-color: #209cee;
 }

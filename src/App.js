@@ -21,7 +21,7 @@ class App extends Component {
             <div className="columns">
 
               <div className="column">
-                <p>Go watch Ster on Twitch at <a href="https://www.twitch.tv/ster">https://www.twitch.tv/ster</a></p><br></br>
+                <p>Go watch Ster on <i className="fab fa-twitch"></i> at <a href="https://www.twitch.tv/ster">https://www.twitch.tv/ster</a></p><br></br>
                 <p>Soundboard Volume  </p>
                 <VolumeSlider />
               </div>
@@ -128,6 +128,16 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <footer className="footer">
+          <div className="content has-text-centered">
+            <p>
+              Made with <i className="fas fa-heart"></i> by <a href="https://www.twitch.tv/nyxcharon">NyxCharon</a>
+            </p>
+            <p>
+              Have an idea for a new sound? Make an issue < a href="https://github.com/nyxcharon/ster-soundboard/issues"> here </a> with a Twitch clip or Vod + timestamp
+              </p>
+          </div>
+        </footer>
       </div>
     );
   }

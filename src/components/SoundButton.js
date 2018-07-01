@@ -34,17 +34,16 @@ class SoundButton extends Component {
 
     render() {
         return (
-            <div className="card">
-                <div className="card-content">
-                    <div className="content">
-                        <a onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} onClick={() => { this.handleMouseClick(this.props.soundURL) }}>
-                            <span>
-                                <img src={this.state.imgSrc} alt="" />
-                            </span>
-                        </a>
-                        <p>{this.props.soundName}</p>
-                    </div>
-                </div>
+            <div className="">
+            <div className="circle-button">
+                <a onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} onClick={() => { this.handleMouseClick(this.props.soundURL) }}>
+                    <span>
+                        <img src={this.state.imgSrc} alt="" />
+                    </span>
+                </a>
+            </div>
+            <span className="tag is-info is-rounded is-medium circle-tag">  {this.props.soundName}</span>
+          
             </div>
         )
     }
