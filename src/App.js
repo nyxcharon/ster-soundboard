@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import VolumeSlider from './components/VolumeSlider';
 import SoundButton from './components/SoundButton';
+import { getSoundList } from './mockAPI.js';
 
 import 'react-rangeslider/lib/index.css';
 import '../node_modules/bulma/css/bulma.css';
@@ -9,6 +10,18 @@ import './App.css';
 
 class App extends Component {
   render() {
+    let table = []
+    let sounds = getSoundList()
+    let soundChunks = sounds.chunk(6)
+    for (let i = 0; i < soundChunks.length; i++) {
+      let children = []
+      for (let j = 0; j < soundChunks[i].length; j++) {
+        let s = soundChunks[i][j]
+        children.push(<div className="column" key={s.soundName}><SoundButton soundName={s.soundName} soundURL={s.soundURL} /></div>)
+      }
+      table.push(<div className="columns" key={i}>{children}</div>)
+    }
+
     return (
       <div className="App">
         <header className="App-header">
@@ -26,106 +39,7 @@ class App extends Component {
                 <VolumeSlider />
               </div>
             </div>
-            <div className="columns">
-              <div className="column">
-                <SoundButton soundName="FUCK" soundURL="fuck.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Undodgeable" soundURL="undodgeable.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Are you serious?" soundURL="areyouserious.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="What the fuck" soundURL="whatthefuck.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="[Cackaling]" soundURL="cackaling.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Can't Stop" soundURL="cantstopwontstop.mp3" />
-              </div>
-            </div>
-            <div className="columns">
-              <div className="column">
-                <SoundButton soundName="Corporations" soundURL="corporations.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Did you see that" soundURL="didyouseethat.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Dude you're nuts" soundURL="dudeyournuts.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Folder" soundURL="folder.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Fuck my ass" soundURL="fuckmyass.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Game Sux" soundURL="gamesux.mp3" />
-              </div>
-            </div>
-            <div className="columns">
-              <div className="column">
-                <SoundButton soundName="Hide the body" soundURL="hidethebody.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Jeff Why" soundURL="jeffwhy.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Just Stop" soundURL="juststop.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="[Moaning]" soundURL="moaning.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Nice" soundURL="nice.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Oh God" soundURL="ohgod.mp3" />
-              </div>
-            </div>
-            <div className="columns">
-              <div className="column">
-                <SoundButton soundName="Ohhhhh" soundURL="ohhh.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Pretty damn cool" soundURL="prettydamncool.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Reddit" soundURL="reddit.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="[Screaming]" soundURL="screaming.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Stop trying to fix It" soundURL="stoptellingmehowtofixit.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Streamer Sux" soundURL="streamersux.mp3" />
-              </div>
-            </div>
-            <div className="columns">
-              <div className="column">
-                <SoundButton soundName="Nice save" soundURL="thanksforsave.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Wahh" soundURL="wah.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Bad suggestions" soundURL="whyareyousuggestingthesethings.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Why" soundURL="why.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Why did I do that" soundURL="whydididothat.mp3" />
-              </div>
-              <div className="column">
-                <SoundButton soundName="Woo" soundURL="woo.mp3" />
-              </div>
-            </div>
+            {table}
           </div>
         </div>
         <footer className="footer">
@@ -144,3 +58,16 @@ class App extends Component {
 }
 
 export default App;
+
+// eslint-disable-next-line 
+Array.prototype.chunk = function (groupsize) {
+  var sets = [], chunks, i = 0;
+  chunks = this.length / groupsize;
+
+  while (i < chunks) {
+    sets[i] = this.splice(0, groupsize);
+    i++;
+  }
+
+  return sets;
+};
