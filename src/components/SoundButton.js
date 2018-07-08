@@ -33,7 +33,7 @@ class SoundButton extends Component {
         });
 
         sound.play();
-        setTimeout(this.handleMouseOut,3000);
+        setTimeout(this.handleMouseOut,400);
     }
 
     render() {
