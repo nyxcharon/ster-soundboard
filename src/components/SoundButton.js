@@ -25,23 +25,27 @@ class SoundButton extends Component {
     }
 
     handleMouseClick(soundURL) {
+        this.setState({
+            imgSrc: 'starBE.png'
+        });
         const sound = new Howl({
             src: [soundURL]
         });
 
         sound.play();
+        setTimeout(this.handleMouseOut,3000);
     }
 
     render() {
         return (
             <div className="">
-            <div className="circle-button">
-                <a onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} onClick={() => { this.handleMouseClick(this.props.soundURL) }}>
-                   <img className="burger-pic" src={this.state.imgSrc} alt="" />
-                </a>
-            </div>
-            <span className="tag is-info is-rounded is-medium circle-tag">  {this.props.soundName}</span>
-          
+                <div className="circle-button">
+                    <a onMouseOver={this.handleMouseOver} onMouseOut={this.handleMouseOut} onClick={() => { this.handleMouseClick(this.props.soundURL) }}>
+                        <img className="burger-pic" src={this.state.imgSrc} alt="" />
+                    </a>
+                </div>
+                <span className="tag is-info is-rounded is-medium circle-tag">  {this.props.soundName}</span>
+
             </div>
         )
     }
