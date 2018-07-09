@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Howler } from 'howler';
-import Slider from 'react-rangeslider';
+import React, { Component } from 'react'
+import { Howler } from 'howler'
+import Slider from 'react-rangeslider'
 
 class VolumeSlider extends Component {
-    constructor(props, context) {
+  constructor (props, context) {
         super(props, context)
         this.state = {
             volume: 50
@@ -11,14 +11,14 @@ class VolumeSlider extends Component {
         Howler.volume(0.5)
     }
 
-    handleOnChange = (value) => {
+  handleOnChange = (value) => { 
         this.setState({
             volume: value
         })
         Howler.volume(value / 100.0)
     }
 
-    render() {
+  render () {
         let { volume } = this.state
         return (
             <Slider
@@ -30,4 +30,4 @@ class VolumeSlider extends Component {
     }
 }
 
-export default VolumeSlider;
+export default VolumeSlider

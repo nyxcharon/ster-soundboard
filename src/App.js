@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import VolumeSlider from './components/VolumeSlider';
-import SoundButton from './components/SoundButton';
-import { getSoundList } from './mockAPI.js';
+import React, { Component } from 'react'
+import VolumeSlider from './components/VolumeSlider'
+import SoundButton from './components/SoundButton'
+import { getSoundList } from './mockAPI.js'
 
-import 'react-rangeslider/lib/index.css';
-import '../node_modules/bulma/css/bulma.css';
-import './App.css';
-
+import 'react-rangeslider/lib/index.css'
+import '../node_modules/bulma/css/bulma.css'
+import './App.css'
 
 class App extends Component {
-  render() {
+  render () {
     let table = []
     let sounds = getSoundList()
     let soundChunks = sounds.chunk(6)
@@ -49,25 +48,25 @@ class App extends Component {
             </p>
             <p>
               Have an idea for a new sound? Make an issue < a href="https://github.com/nyxcharon/ster-soundboard/issues"> here </a> with a Twitch clip or Vod + timestamp
-              </p>
+            </p>
           </div>
         </footer>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
 
-// eslint-disable-next-line 
+// eslint-disable-next-line
 Array.prototype.chunk = function (groupsize) {
-  var sets = [], chunks, i = 0;
-  chunks = this.length / groupsize;
+  var sets = []; var chunks; var i = 0
+  chunks = this.length / groupsize
 
   while (i < chunks) {
-    sets[i] = this.splice(0, groupsize);
-    i++;
+    sets[i] = this.splice(0, groupsize)
+    i++
   }
 
-  return sets;
-};
+  return sets
+}
