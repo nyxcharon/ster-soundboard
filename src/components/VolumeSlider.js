@@ -6,9 +6,9 @@ class VolumeSlider extends Component {
   constructor (props, context) {
         super(props, context)
         this.state = {
-            volume: 50
+            volume: 25
         }
-        Howler.volume(0.5)
+        Howler.volume(0.25)
     }
 
   handleOnChange = (value) => { 
